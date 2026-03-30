@@ -148,6 +148,13 @@
 
 	<node name="$(arg  name)" pkg="nodelet" type="nodelet" output="screen" required="true"
 		args="load depthai_ros_driver/Camera $(arg  name)_nodelet_manager">
+	  <remap from="$(arg name)/cam_d/image_raw"         to="$(arg name)/center/image_raw" />  	  
+  	  <remap from="$(arg name)/cam_d/camera_info"       to="$(arg name)/center/camera_info" />
+      <remap from="$(arg name)/cam_d/compressed"        to="$(arg name)/center/compressed" />
+      <remap from="$(arg name)/cam_d/compressedDepth"   to="$(arg name)/center/compressedDepth" />
+      <remap from="$(arg name)/cam_d/theora"            to="$(arg name)/center/theora" />
+
+
 	</node>
 
 	<node pkg="nodelet" type="nodelet" name="rectify_color"
