@@ -148,7 +148,18 @@ void Camera::parameterCB(parametersConfig& config, uint32_t /*level*/) {
 void Camera::onConfigure() {
     try {
         getDeviceType();
+        
         createPipeline();
+        
+        // ---- FFC SYNC BLOCK ----
+        dai::BoardConfig boardConfig = pipeline->getBoardConfig();
+        boardConfig.gpio[6] = dai::BoardConfig::GPIO(
+            dai::BoardConfig::GPIO::OUTPUT,
+            dai::BoardConfig::GPIO::Level::HIGH
+        );
+        pipeline->setBoardConfig(boardConfig);
+        // ---- END BLOCK ----
+
         device->startPipeline(*pipeline);
         // If model name not set get one from the device
         std::string camModel = ph->getParam<std::string>("i_tf_camera_model");

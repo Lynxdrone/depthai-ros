@@ -1,5 +1,5 @@
 #include "depthai_ros_driver/dai_nodes/sensors/mono.hpp"
-
+#include "depthai/depthai.hpp"
 #include "depthai/device/DataQueue.hpp"
 #include "depthai/device/Device.hpp"
 #include "depthai/pipeline/Pipeline.hpp"
@@ -23,8 +23,22 @@ Mono::Mono(const std::string& daiNodeName,
     ROS_DEBUG("Creating node %s", daiNodeName.c_str());
     setNames();
     monoCamNode = pipeline->create<dai::node::MonoCamera>();
+
+    if (socket == dai::CameraBoardSocket::CAM_A || 
+        socket == dai::CameraBoardSocket::CAM_C ||
+        socket == dai::CameraBoardSocket::CAM_D ) {
+         std::cout << "Set FrameSyncMode " << "INPUT" << std::endl;
+        monoCamNode->initialControl.setFrameSyncMode(dai::CameraControl::FrameSyncMode::INPUT);  // set focus to infinity by default for mono cameras
+    } else if (socket == dai::CameraBoardSocket::CAM_B) {
+        monoCamNode->initialControl.setFrameSyncMode(dai::CameraControl::FrameSyncMode::OUTPUT);
+        std::cout << "Set FrameSyncMode " << "OUTPUT" << std::endl;
+    }
     ph = std::make_unique<param_handlers::SensorParamHandler>(node, daiNodeName, socket);
+
+
+
     ph->declareParams(monoCamNode, sensor, publish);
+    
     setXinXout(pipeline);
     ROS_DEBUG("Node %s created", daiNodeName.c_str());
 }

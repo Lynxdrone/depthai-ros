@@ -4,8 +4,8 @@
 	<arg name="publish_tf_from_calibration" default="false" />
 	<arg name="imu_from_descr" default="false" />
 	<arg name="override_cam_model" default="false" />
-	<arg name="rectify_rgb" default="true" />
-	<arg name="enable_pointcloud" default="false" />
+	<arg name="rectify_rgb" default="false" />
+	<arg name="enable_pointcloud" default="true" />
 	<arg name="enable_color" default="true" />
 	<arg name="enable_depth" default="true" />
 	<arg name="enable_infra1" default="false" />
@@ -48,15 +48,15 @@
 			value="$(eval rgb_camera_color_profile.split(',')[1])" />
 		<param name="$(arg name)/color_i_fps" value="$(eval rgb_camera_color_profile.split(',')[2])" />
 
-		<param name="$(arg name)/depth_i_synced" value="true" />
+		<!-- <param name="$(arg name)/depth_i_synced" value="true" />
 		<param name="$(arg name)/depth_i_publish_topic" value="$(arg enable_depth)" />
 		<param name="$(arg name)/depth_i_width"
 			value="$(eval depth_module_depth_profile.split(',')[0])" />
 		<param name="$(arg name)/depth_i_height"
 			value="$(eval depth_module_depth_profile.split(',')[1])" />
 		<param name="$(arg name)/depth_i_fps"
-			value="$(eval depth_module_depth_profile.split(',')[2])" />
-
+			value="$(eval depth_module_depth_profile.split(',')[2])" /> -->
+<!-- 
 		<param name="$(arg name)/infra1_i_publish_topic" value="$(arg enable_infra1)" />
 		<param name="$(arg name)/infra1_i_width"
 			value="$(eval depth_module_infra_profile.split(',')[0])" />
@@ -74,7 +74,7 @@
 			value="$(eval depth_module_infra_profile.split(',')[2])" />
 
 		<param name="$(arg name)/depth_i_left_rect_publish_topic" value="true" />
-		<param name="$(arg name)/depth_i_right_rect_publish_topic" value="true" />
+		<param name="$(arg name)/depth_i_right_rect_publish_topic" value="true" /> -->
 	</group>
 
 	<arg name="params_file" default="$(find depthai_ros_driver)/config/camera.yaml" />
@@ -148,6 +148,13 @@
 
 	<node name="$(arg  name)" pkg="nodelet" type="nodelet" output="screen" required="true"
 		args="load depthai_ros_driver/Camera $(arg  name)_nodelet_manager">
+	  <!-- <remap from="$(arg name)/cam_d/image_raw"         to="$(arg name)/center/image_raw" />  	  
+  	  <remap from="$(arg name)/cam_d/camera_info"       to="$(arg name)/center/camera_info" />
+      <remap from="$(arg name)/cam_d/compressed"        to="$(arg name)/center/compressed" />
+      <remap from="$(arg name)/cam_d/compressedDepth"   to="$(arg name)/center/compressedDepth" />
+      <remap from="$(arg name)/cam_d/theora"            to="$(arg name)/center/theora" /> -->
+
+
 	</node>
 
 	<node pkg="nodelet" type="nodelet" name="rectify_color"

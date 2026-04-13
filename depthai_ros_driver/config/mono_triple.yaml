@@ -1,0 +1,16 @@
+/oak:
+  camera_i_pipeline_type: RGBStereo
+  camera_i_enable_imu: true
+  camera_i_enable_ir: false
+  camera_i_laser_dot_brightness: 800.0
+  camera_i_nn_type: none
+  camera_i_mx_id: '14442C10A1A79ED200'
+  camera_i_usb_speed: SUPER_PLUS
+  left_i_resolution: '400P'
+  left_i_fps: 30
+  right_i_resolution: '400P'
+  right_i_fps: 30
+  rgb_i_resolution: '720P'
+  rgb_i_fps: 30
+  cam_d_i_resolution: '400P'
+  cam_d_i_fps: 30
