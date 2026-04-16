@@ -27,7 +27,7 @@ Stereo::Stereo(const std::string& daiNodeName,
     ROS_DEBUG("Creating node %s", daiNodeName.c_str());
     setNames();
     ph = std::make_unique<param_handlers::StereoParamHandler>(node, daiNodeName);
-    auto alignSocket = dai::CameraBoardSocket::CAM_A;
+    auto alignSocket = dai::CameraBoardSocket::CAM_E;
     if(device->getDeviceName() == "OAK-D-SR") {
         alignSocket = dai::CameraBoardSocket::CAM_C;
     }

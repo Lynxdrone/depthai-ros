@@ -35,7 +35,7 @@ namespace link_types {
 enum class RGBLinkType { video, isp, preview };
 }
 namespace sensor_helpers {
-enum class NodeNameEnum { RGB, Left, Right, Stereo, IMU, NN };
+enum class NodeNameEnum { RGB, Left, Right, Stereo, IMU, NN, CamD, CamA };
 struct ImageSensor {
     std::string name;
     std::string defaultResolution;

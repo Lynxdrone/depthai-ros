@@ -11,8 +11,8 @@ namespace dai_nodes {
 namespace sensor_helpers {
 std::vector<ImageSensor> availableSensors = {{"IMX378", "1080P", {"12MP", "4K", "1080P"}, dai::CameraSensorType::COLOR},
                                              {"IMX462", "1080P", {"1080P"}, dai::CameraSensorType::COLOR},
-                                             {"OV9282", "720P", {"800P", "720P", "400P"}, dai::CameraSensorType::MONO},
-                                             {"OV9782", "720P", {"800P", "720P", "400P"}, dai::CameraSensorType::COLOR},
+                                             {"OV9282", "400P", {"800P", "720P", "400P"}, dai::CameraSensorType::MONO},
+                                             {"OV9782", "400P", {"800P", "720P", "400P"}, dai::CameraSensorType::MONO},
                                              {"OV9281", "720P", {"800P", "720P", "400P"}, dai::CameraSensorType::COLOR},
                                              {"IMX214", "1080P", {"13MP", "12MP", "4K", "1080P"}, dai::CameraSensorType::COLOR},
                                              {"IMX412", "1080P", {"13MP", "12MP", "4K", "1080P"}, dai::CameraSensorType::COLOR},
@@ -32,7 +32,7 @@ const std::unordered_map<std::string, dai::MonoCameraProperties::SensorResolutio
     {"1200P", dai::MonoCameraProperties::SensorResolution::THE_1200_P},
 };
 
-const std::unordered_map<std::string, dai::ColorCameraProperties::SensorResolution> rgbResolutionMap = {
+const std::unordered_map<std::string, dai::ColorCameraProperties::SensorResolution> rgbResolutionMap = {    
     {"720P", dai::ColorCameraProperties::SensorResolution::THE_720_P},
     {"1080P", dai::ColorCameraProperties::SensorResolution::THE_1080_P},
     {"4K", dai::ColorCameraProperties::SensorResolution::THE_4_K},
@@ -61,10 +61,10 @@ const std::unordered_map<std::string, dai::CameraImageOrientation> cameraImageOr
 
 const std::unordered_map<dai::CameraBoardSocket, std::string> socketNameMap = {
     {dai::CameraBoardSocket::AUTO, "rgb"},
-    {dai::CameraBoardSocket::CAM_A, "rgb"},
+    {dai::CameraBoardSocket::CAM_A, "right_w"},
     {dai::CameraBoardSocket::CAM_B, "left"},
     {dai::CameraBoardSocket::CAM_C, "right"},
-    {dai::CameraBoardSocket::CAM_D, "cam_d"},
+    {dai::CameraBoardSocket::CAM_D, "left_w"},
     {dai::CameraBoardSocket::CAM_E, "cam_e"},
 };
 const std::unordered_map<dai::CameraBoardSocket, std::string> rsSocketNameMap = {
@@ -82,6 +82,8 @@ const std::unordered_map<NodeNameEnum, std::string> rsNodeNameMap = {
     {NodeNameEnum::Stereo, "depth"},
     {NodeNameEnum::IMU, "imu"},
     {NodeNameEnum::NN, "nn"},
+    {NodeNameEnum::CamD, "left_w"},
+    {NodeNameEnum::CamA, "right_w"},
 };
 
 const std::unordered_map<NodeNameEnum, std::string> NodeNameMap = {
@@ -91,6 +93,8 @@ const std::unordered_map<NodeNameEnum, std::string> NodeNameMap = {
     {NodeNameEnum::Stereo, "stereo"},
     {NodeNameEnum::IMU, "imu"},
     {NodeNameEnum::NN, "nn"},
+    {NodeNameEnum::CamD, "left_w"},
+    {NodeNameEnum::CamA, "right_w"},
 };
 
 const std::unordered_map<std::string, dai::ColorCameraProperties::ColorOrder> colorOrderMap = {{"BGR", dai::ColorCameraProperties::ColorOrder::BGR},

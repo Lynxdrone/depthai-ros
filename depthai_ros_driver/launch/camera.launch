@@ -4,7 +4,7 @@
 	<arg name="publish_tf_from_calibration" default="false" />
 	<arg name="imu_from_descr" default="false" />
 	<arg name="override_cam_model" default="false" />
-	<arg name="rectify_rgb" default="true" />
+	<arg name="rectify_rgb" default="false" />
 	<arg name="enable_pointcloud" default="false" />
 	<arg name="enable_color" default="true" />
 	<arg name="enable_depth" default="true" />

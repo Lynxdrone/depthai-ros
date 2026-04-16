@@ -140,6 +140,15 @@ std::vector<std::unique_ptr<dai_nodes::BaseNode>> CamArray::createPipeline(ros::
         auto daiNode = std::make_unique<dai_nodes::SensorWrapper>(name, node, pipeline, device, feature.socket);
         daiNodes.push_back(std::move(daiNode));
     };
+    // auto cam_a = std::make_unique<dai_nodes::SensorWrapper>(getNodeName(node, NodeNameEnum::RGB), node, pipeline, device, dai::CameraBoardSocket::CAM_A);
+    // auto left = std::make_unique<dai_nodes::SensorWrapper>(getNodeName(node, NodeNameEnum::Left), node, pipeline, device, dai::CameraBoardSocket::CAM_B);
+    // auto right = std::make_unique<dai_nodes::SensorWrapper>(getNodeName(node, NodeNameEnum::Right), node, pipeline, device, dai::CameraBoardSocket::CAM_C);                                                                            
+    // auto cam_d = std::make_unique<dai_nodes::SensorWrapper>(getNodeName(node, NodeNameEnum::CamD), node, pipeline, device, dai::CameraBoardSocket::CAM_D);                                                                            
+
+    // // daiNodes.push_back(std::move(rgb));
+    // daiNodes.push_back(std::move(left));
+    // daiNodes.push_back(std::move(right));
+    // // daiNodes.push_back(std::move(cam_d));
     return daiNodes;
 }
 
