@@ -3,15 +3,15 @@
 
 	<arg name="publish_tf_from_calibration" default="false" />
 	<arg name="imu_from_descr" default="false" />
-	<arg name="override_cam_model" default="false" />
+	<arg name="override_cam_model" default="true" />
 	<arg name="rectify_rgb" default="false" />
 	<arg name="enable_pointcloud" default="false" />
 	<arg name="enable_color" default="true" />
-	<arg name="enable_depth" default="true" />
+	<arg name="enable_depth" default="false" />
 	<arg name="enable_infra1" default="false" />
 	<arg name="enable_infra2" default="false" />
 	<arg name="depth_module_depth_profile" default="1280,720,30" />
-	<arg name="rgb_camera_color_profile" default="1280,720,30" />
+	<arg name="rgb_camera_color_profile" default="640,400,30" />
 	<arg name="depth_module_infra_profile" default="1280,720,30" />
 	<arg name="rs_compat" default="false" />
 
@@ -77,7 +77,7 @@
 		<param name="$(arg name)/depth_i_right_rect_publish_topic" value="true" />
 	</group>
 
-	<arg name="params_file" default="$(find depthai_ros_driver)/config/camera.yaml" />
+	<arg name="params_file" default="/home/orin3/catkin_ws/src/rover_nav/config/oak_ffc_4p.yaml" />
 	<arg name="camera_model" default="OAK-D" />
 
 	<arg name="base_frame" default="oak-d_frame" />

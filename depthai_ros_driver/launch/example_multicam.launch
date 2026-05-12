@@ -8,9 +8,6 @@
     <include file="$(find depthai_ros_driver)/launch/camera.launch">
         <arg name="name" value="oak_mono_triple"/>
     </include>
-    <!-- <include file="$(find depthai_ros_driver)/launch/camera.launch">
-        <arg name="name" value="oak_d_w"/>
-    </include> -->
 
 
 </launch>

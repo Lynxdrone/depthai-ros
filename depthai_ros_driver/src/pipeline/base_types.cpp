@@ -128,6 +128,7 @@ std::vector<std::unique_ptr<dai_nodes::BaseNode>> Depth::createPipeline(ros::Nod
     daiNodes.push_back(std::move(stereo));
     return daiNodes;
 }
+
 std::vector<std::unique_ptr<dai_nodes::BaseNode>> CamArray::createPipeline(ros::NodeHandle node,
                                                                            std::shared_ptr<dai::Device> device,
                                                                            std::shared_ptr<dai::Pipeline> pipeline,
@@ -140,17 +141,30 @@ std::vector<std::unique_ptr<dai_nodes::BaseNode>> CamArray::createPipeline(ros::
         auto daiNode = std::make_unique<dai_nodes::SensorWrapper>(name, node, pipeline, device, feature.socket);
         daiNodes.push_back(std::move(daiNode));
     };
-    // auto cam_a = std::make_unique<dai_nodes::SensorWrapper>(getNodeName(node, NodeNameEnum::RGB), node, pipeline, device, dai::CameraBoardSocket::CAM_A);
-    // auto left = std::make_unique<dai_nodes::SensorWrapper>(getNodeName(node, NodeNameEnum::Left), node, pipeline, device, dai::CameraBoardSocket::CAM_B);
-    // auto right = std::make_unique<dai_nodes::SensorWrapper>(getNodeName(node, NodeNameEnum::Right), node, pipeline, device, dai::CameraBoardSocket::CAM_C);                                                                            
-    // auto cam_d = std::make_unique<dai_nodes::SensorWrapper>(getNodeName(node, NodeNameEnum::CamD), node, pipeline, device, dai::CameraBoardSocket::CAM_D);                                                                            
-
-    // // daiNodes.push_back(std::move(rgb));
-    // daiNodes.push_back(std::move(left));
-    // daiNodes.push_back(std::move(right));
-    // // daiNodes.push_back(std::move(cam_d));
+  
     return daiNodes;
 }
+
+
+// std::vector<std::unique_ptr<dai_nodes::BaseNode>> CamArray::createPipeline(ros::NodeHandle node,
+//                                                                            std::shared_ptr<dai::Device> device,
+//                                                                            std::shared_ptr<dai::Pipeline> pipeline,
+//                                                                            const std::string& /*nnType*/) {
+//     using namespace dai_nodes::sensor_helpers;
+//     std::vector<std::unique_ptr<dai_nodes::BaseNode>> daiNodes;
+
+//     auto cam_a = std::make_unique<dai_nodes::SensorWrapper>(getNodeName(node, NodeNameEnum::CamA), node, pipeline, device, dai::CameraBoardSocket::CAM_A);
+//     auto left = std::make_unique<dai_nodes::SensorWrapper>(getNodeName(node, NodeNameEnum::Left), node, pipeline, device, dai::CameraBoardSocket::CAM_B);
+//     auto right = std::make_unique<dai_nodes::SensorWrapper>(getNodeName(node, NodeNameEnum::Right), node, pipeline, device, dai::CameraBoardSocket::CAM_C);                                                                            
+//     auto cam_d = std::make_unique<dai_nodes::SensorWrapper>(getNodeName(node, NodeNameEnum::CamD), node, pipeline, device, dai::CameraBoardSocket::CAM_D);                                                                            
+
+//     daiNodes.push_back(std::move(cam_a));
+//     daiNodes.push_back(std::move(left));
+//     daiNodes.push_back(std::move(right));
+//     daiNodes.push_back(std::move(cam_d));
+//     return daiNodes;
+// }
+
 
 std::vector<std::unique_ptr<dai_nodes::BaseNode>> DepthToF::createPipeline(ros::NodeHandle node,
                                                                            std::shared_ptr<dai::Device> device,

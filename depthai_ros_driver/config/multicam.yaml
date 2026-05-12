@@ -11,6 +11,7 @@
     right_i_fps: 30
     # rgb_i_resolution: '720P'
     # rgb_i_fps: 30  
+    
 /oak_mono_triple:
     camera_i_pipeline_type: CamArray
     camera_i_enable_imu: false
