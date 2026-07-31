@@ -77,7 +77,7 @@
 		<param name="$(arg name)/depth_i_right_rect_publish_topic" value="true" />
 	</group>
 
-	<arg name="params_file" default="/home/orin3/catkin_ws/src/rover_nav/config/oak_ffc_4p.yaml" />
+	<arg name="params_file" default="/home/orinlynx/catkin_ws/src/rover_nav/config/oak_ffc_4p.yaml" />
 	<arg name="camera_model" default="OAK-D" />
 
 	<arg name="base_frame" default="oak-d_frame" />
