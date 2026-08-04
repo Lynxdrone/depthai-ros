@@ -27,16 +27,12 @@ Mono::Mono(const std::string& daiNodeName,
     if (socket == dai::CameraBoardSocket::CAM_A || 
         socket == dai::CameraBoardSocket::CAM_C ||
         socket == dai::CameraBoardSocket::CAM_D
-        ) {
-         std::cout << "Set FrameSyncMode " << "INPUT: " << socket << std::endl;
+        ) {        
         monoCamNode->initialControl.setFrameSyncMode(dai::CameraControl::FrameSyncMode::INPUT);  // set focus to infinity by default for mono cameras
     } else if (socket == dai::CameraBoardSocket::CAM_B) {
-        monoCamNode->initialControl.setFrameSyncMode(dai::CameraControl::FrameSyncMode::OUTPUT);
-        std::cout << "Set FrameSyncMode " << "OUTPUT: " << socket << std::endl;
+        monoCamNode->initialControl.setFrameSyncMode(dai::CameraControl::FrameSyncMode::OUTPUT);        
     }
     ph = std::make_unique<param_handlers::SensorParamHandler>(node, daiNodeName, socket);
-
-
 
     ph->declareParams(monoCamNode, sensor, publish);
     
