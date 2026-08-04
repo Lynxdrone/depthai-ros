@@ -62,7 +62,7 @@ void ImuParamHandler::declareParams(std::shared_ptr<dai::node::IMU> imu, const s
         if(magnetometerAvailable) {
             const std::string magnetometerModeName = utils::getUpperCaseStr(declareAndLogParam<std::string>("i_mag_mode", "MAGNETOMETER_RAW"));
             const dai::IMUSensor magnetometerMode = utils::getValFromMap(magnetometerModeName, magnetometerModeMap);
-            const int magnetometerFreq = declareAndLogParam<int>("i_mag_freq", 100);
+            const int magnetometerFreq = declareAndLogParam<int>("i_mag_freq", 200);
 
             imu->enableIMUSensor(magnetometerMode, magnetometerFreq);
         } else {

@@ -231,43 +231,42 @@ void SensorParamHandler::declareParams(std::shared_ptr<dai::node::ColorCamera> c
 dai::CameraControl SensorParamHandler::setRuntimeParams(parametersConfig& config) {
     dai::CameraControl ctrl;
 
-    // if(getName() == "rgb") {
-    //     if(config.rgb_r_set_man_exposure) {
-    //         ctrl.setManualExposure(config.rgb_r_exposure, config.rgb_r_iso);
-    //     } else {
-    //         ctrl.setAutoExposureEnable();
-    //     }
+    if(getName() == "rgb") {
+        if(config.rgb_r_set_man_exposure) {
+            ctrl.setManualExposure(config.rgb_r_exposure, config.rgb_r_iso);
+        } else {
+            ctrl.setAutoExposureEnable();
+        }
 
-    //     if(config.rgb_r_set_man_focus) {
-    //         ctrl.setManualFocus(config.rgb_r_focus);
-    //     } else {
-    //         ctrl.setAutoFocusMode(dai::CameraControl::AutoFocusMode::CONTINUOUS_PICTURE);
-    //     }
-    //     if(config.rgb_r_set_man_whitebalance) {
-    //         ctrl.setManualWhiteBalance(config.rgb_r_whitebalance);
-    //     } else {
-    //         ctrl.setAutoWhiteBalanceMode(dai::CameraControl::AutoWhiteBalanceMode::AUTO);
-    //     }
-    //     if(config.rgb_r_set_auto_exposure_limit) {
-    //         ctrl.setAutoExposureLimit(config.rgb_r_auto_exposure_limit);
-    //     }
-    //     if(config.rgb_r_set_sharpness) {
-    //         ctrl.setSharpness(config.rgb_r_sharpness);
-    //     }
-    //     if(config.rgb_r_set_chroma_denoise) {
-    //         ctrl.setChromaDenoise(config.rgb_r_chroma_denoise);
-    //     }
-    //     if(config.rgb_r_set_luma_denoise) {
-    //         ctrl.setLumaDenoise(config.rgb_r_luma_denoise);
-    //     }
-    //     if(config.rgb_r_set_auto_exp_region) {
-    //         ctrl.setAutoExposureRegion(config.rgb_r_auto_exp_region_start_x,
-    //                                    config.rgb_r_auto_exp_region_start_y,
-    //                                    config.rgb_r_auto_exp_region_width,
-    //                                    config.rgb_r_auto_exp_region_height);
-    //     }
-    // 
-    if(getName() == "left_w") {
+        if(config.rgb_r_set_man_focus) {
+            ctrl.setManualFocus(config.rgb_r_focus);
+        } else {
+            ctrl.setAutoFocusMode(dai::CameraControl::AutoFocusMode::CONTINUOUS_PICTURE);
+        }
+        if(config.rgb_r_set_man_whitebalance) {
+            ctrl.setManualWhiteBalance(config.rgb_r_whitebalance);
+        } else {
+            ctrl.setAutoWhiteBalanceMode(dai::CameraControl::AutoWhiteBalanceMode::AUTO);
+        }
+        if(config.rgb_r_set_auto_exposure_limit) {
+            ctrl.setAutoExposureLimit(config.rgb_r_auto_exposure_limit);
+        }
+        if(config.rgb_r_set_sharpness) {
+            ctrl.setSharpness(config.rgb_r_sharpness);
+        }
+        if(config.rgb_r_set_chroma_denoise) {
+            ctrl.setChromaDenoise(config.rgb_r_chroma_denoise);
+        }
+        if(config.rgb_r_set_luma_denoise) {
+            ctrl.setLumaDenoise(config.rgb_r_luma_denoise);
+        }
+        if(config.rgb_r_set_auto_exp_region) {
+            ctrl.setAutoExposureRegion(config.rgb_r_auto_exp_region_start_x,
+                                       config.rgb_r_auto_exp_region_start_y,
+                                       config.rgb_r_auto_exp_region_width,
+                                       config.rgb_r_auto_exp_region_height);
+        }
+    } else if(getName() == "left_w") {
         if(config.left_w_r_set_man_exposure) {
             ctrl.setManualExposure(config.left_w_r_exposure, config.left_w_r_iso);
         } else {
