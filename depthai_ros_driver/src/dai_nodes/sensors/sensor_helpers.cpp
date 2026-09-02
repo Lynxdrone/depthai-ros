@@ -12,7 +12,7 @@ namespace sensor_helpers {
 std::vector<ImageSensor> availableSensors = {{"IMX378", "1080P", {"12MP", "4K", "1080P"}, dai::CameraSensorType::COLOR},
                                              {"IMX462", "1080P", {"1080P"}, dai::CameraSensorType::COLOR},
                                              {"OV9282", "400P", {"800P", "720P", "400P"}, dai::CameraSensorType::MONO},
-                                             {"OV9782", "400P", {"800P", "720P", "400P"}, dai::CameraSensorType::MONO},
+                                             {"OV9782", "400P", {"800P", "720P", "400P"}, dai::CameraSensorType::COLOR},
                                              {"OV9281", "720P", {"800P", "720P", "400P"}, dai::CameraSensorType::COLOR},
                                              {"IMX214", "1080P", {"13MP", "12MP", "4K", "1080P"}, dai::CameraSensorType::COLOR},
                                              {"IMX412", "1080P", {"13MP", "12MP", "4K", "1080P"}, dai::CameraSensorType::COLOR},

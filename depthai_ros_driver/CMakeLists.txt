@@ -60,7 +60,6 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fPIC")
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fPIC")
 set(HUNTER_BUILD_SHARED_LIBS ON)
 
-set(depthai_DIR "~/librairies/depthai-core/build/install")
 find_package(depthai CONFIG REQUIRED)
 generate_dynamic_reconfigure_options(
   cfg/parameters.cfg
